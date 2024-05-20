@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// http://localhost:8080/api/tickets/{id}/edit
+// http://localhost:8080/api/users/{id}/delete
+// universal resource locator
+// tickets
+// users
+
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+// Route::get('/tickets', [TicketController::class, 'register']);
+Route::get('/tickets', function(){
+    return response()->json([
+        'data' => Ticket::all()
+    ]);
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

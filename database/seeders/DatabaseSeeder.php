@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Ticket;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // Ticket::factory(100)
+        // ->recycle(User::factory(10)->create())
+        // ->create();
+        // Create 10 users
+        $users = User::factory(10)->create();
+
+        // Create 100 tickets associated with random users
+        Ticket::factory(100)->create([
+            'user_id' => $users->random()->id,
+        ]);
     }
 }
