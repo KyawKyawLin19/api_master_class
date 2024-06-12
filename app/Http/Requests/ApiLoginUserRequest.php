@@ -13,7 +13,7 @@ class ApiLoginUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class ApiLoginUserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => ['required', 'string', 'email'],
+            'password' => ['required', 'string', 'min:8'],
         ];
     }
 }
