@@ -1,0 +1,72 @@
+{
+    "status": "success",
+    "message": "Survey Form created successfully",
+    "data": {
+        "survey": {
+            "id": 1,
+            "title": "Customer Satisfaction Survey",
+            "description": "A survey to understand customer satisfaction levels",
+            "frequency": 100,
+            "survey_image": "/uploads/customer_satisfaction/survey_image.jpg",
+            "status": "Published",
+            "form_status": "public",
+            "start_date": "2024-07-01",
+            "end_date": "2024-07-31",
+            "show_by": "Date",
+            "lang": "en",
+            "pre_ans": 0,
+            "login_status": 0,
+            "admin_id": 1,
+            "questions": [
+                {
+                    "id": 1,
+                    "survey_id": 1,
+                    "question_no" : 1,
+                    "question_text": "How satisfied are you with our service?",
+                    "question_type": "rating",
+                    "options": [1, 2, 3, 4, 5],
+                    "validation_rules": {
+                        "required": true
+                    },
+                    "subquestions": [
+                        {
+                            "id": 101,
+                            "parent_question_id": 1,
+                            "question_text": "Please rate our customer support.",
+                            "question_type": "rating",
+                            "options": [1, 2, 3, 4, 5],
+                            "validation_rules": {
+                                "required": true
+                            }
+                        },
+                        {
+                            "id": 102,
+                            "parent_question_id": 1,
+                            "question_text": "Please rate the quality of our products.",
+                            "question_type": "rating",
+                            "options": [1, 2, 3, 4, 5],
+                            "validation_rules": {
+                                "required": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "survey_id": 1,
+                    "question_text": "What can we do to improve?",
+                    "question_type": "text",
+                    "options": null,
+                    "validation_rules": {
+                        "required": true,
+                        "string": true,
+                        "max": 255
+                    },
+                    "subquestions": []
+                }
+            ],
+            "created_at": "2024-06-12T09:00:00.000Z",
+            "updated_at": "2024-06-12T09:00:00.000Z"
+        }
+    }
+}
